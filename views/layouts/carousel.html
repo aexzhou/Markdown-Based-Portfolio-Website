@@ -1,0 +1,114 @@
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+  <div class="carousel-indicators">
+    <% it.posts.forEach((post, index) => { %>
+
+      <% if(index === 0) { %>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<%= index %>" class="active" aria-current="true" aria-label="Slide 1"></button>
+      
+      <% } else { %>
+
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1%>"></button>
+      <% } %>
+
+    <% }) %>
+  </div>
+
+
+
+  <div class="carousel-inner round">
+
+    <% it.posts.forEach((post, index) => { %>
+
+      <!-- GETTING THE DATA OF EACH POST -->
+      
+      <!-- Get the Markdown filename without its extension -->
+      <% const postFilename = post[0].replace(".md", "") %>
+      
+      <!-- Get the Markdown post title from its front matter -->
+      <% const postTitle = post[1].frontmatter.title %>
+      
+      <!-- Get the post date from its front matter -->
+      <% const postDate = post[1].frontmatter.date %>
+      
+      <!-- Get the post description from its front matter -->
+      <% const postDescription = post[1].frontmatter.description %>
+      
+      <!-- Get the post tags from its front matter -->
+      <% const postTags = post[1].frontmatter.tags %>
+  
+      <!-- Get the post image from its front matter -->
+      <% const postImage = post[1].frontmatter.image %>
+  
+      <!-- Get the post image alternative text from its front matter -->
+      <% const postImageAlt = post[1].frontmatter.imageAlt %>
+
+      <!-- Treat first item of array differently since it requires the "active" class -->
+      <% if(index === 0) { %>
+
+        <div class="carousel-item active" data-bs-interval="10000">
+          <div class="card d-block mx-auto w-90" style="width: 18rem; min-height: 450px;">
+            <img src="<%= postImage %>" class="card-img-top mx-auto d-block" style="max-height: 200px; width: auto;" alt="<%= postImageAlt %>">
+            <div class="card-body mx-auto w-80">
+
+              <div class="row g-0 mt-1">
+                <h5 class="card-title">
+                  <a class="text-dark" href="/projects/<%= postFilename %>"><%= postTitle %></a>
+                </h5>
+              </div>
+              
+              <div class="row g-0 my-1">
+                <p class="card-text"><%= postDescription %></p>
+              </div>
+              
+              <a href="/projects/<%= postFilename %>" class="btn btn-dark mt-2">Read more</a>
+              
+              <div class="row g-0 mb-4 ">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% } else { %>
+
+        <div class="carousel-item" data-bs-interval="2000">
+          <div class="card d-block mx-auto w-90" style="width: 18rem; min-height: 450px;" >
+            <img src="<%= postImage %>" class="card-img-top mx-auto d-block" style="max-height: 200px; width: auto;" alt="<%= postImageAlt %>">
+            <div class="card-body mx-auto">
+
+              <div class="row g-0 mt-1">
+                <h5 class="card-title">
+                  <a class="text-dark" href="/projects/<%= postFilename %>"><%= postTitle %></a>
+                </h5>
+              </div>
+              
+              <div class="row g-0 my-1">
+                <p class="card-text"><%= postDescription %></p>
+              </div>
+              
+              <a href="/projects/<%= postFilename %>" class="btn btn-dark mt-2">Read more</a>
+              
+              <!-- <div class="row g-0 mb-4 ">
+                <span></span>
+              </div> -->
+            </div>
+          </div>
+        </div>
+    
+      <% } %>
+    
+    <% }) %>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
