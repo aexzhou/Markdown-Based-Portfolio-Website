@@ -12,7 +12,12 @@ export const markdownRoute = app.get("/:folder/:filename", async (c, next) => {
         // Merge the pages and the posts arrays into a single array named mdFiles
         const pages = await getPages()
         const posts = await getPosts()
-        const mdFiles = pages.concat(posts)
+        // const mdFiles = pages.concat(posts)
+        // const projectsDir = join(process.cwd(), 'views', 'projects')
+        // console.log(projectsDir)
+        const mdFiles = posts
+        
+
     
         const currentFile = mdFiles.find(
             (file) => file.path === `views/${c.req.param("folder")}/${c.req.param("filename")}.md`
