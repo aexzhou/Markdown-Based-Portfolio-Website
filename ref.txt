@@ -1,5 +1,0 @@
-https://lebcit.github.io/posts/create-a-simple-markdown-based-blog-in-nodejs/
-node index - runs dev
-npm list - shows node packages
-
-see website about images
