@@ -5,6 +5,7 @@ date: 2023-08-31
 tags: [Node.js, Markdown, HTML]
 image: https://picsum.photos/200
 spotlight : true
+category: School
 ---
 
 ## Intro
@@ -16,6 +17,7 @@ So what we need is just like a translator,<br />
 who can translate a context from one language to another.
 
 ## The translator
+fafidsufhdsifhu
 
 There are many [Markdown to HTML translators](https://github.com/markdown/markdown.github.com/wiki/Implementations) out there.<br />
 Since we're building a Node.js app, we need a translator that works in this environnement.<br />  

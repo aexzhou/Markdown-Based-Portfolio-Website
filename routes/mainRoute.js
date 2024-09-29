@@ -10,8 +10,8 @@ const eta = new Eta({ views: join(process.cwd(), "views") })
 export const mainRoute = app.get("/", async (c) => {
     // Main Route data
     const data = {
-        title: "Alex",
-        description: "List of the most recent posts",
+        title: "Home",
+        description: "Homepage",
     }
 
     const res = eta.render("layouts/base.html", {
@@ -21,7 +21,7 @@ export const mainRoute = app.get("/", async (c) => {
         data: data,
         posts: await getSpotlightPosts(),
         // Passing needed settings for the template
-        siteTitle: "Home",
+        siteTitle: "Alex",
     })
     return c.html(res)
 })

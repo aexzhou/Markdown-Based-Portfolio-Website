@@ -29,7 +29,7 @@ export const markdownRoute = app.get("/:folder/:filename", async (c, next) => {
             content: fileContent,
             dirname: fileDirectory,
             // Passing needed settings for the template
-            siteTitle: "Notes",
+            siteTitle: "Alex",
         })
         return c.html(res)
     } else {

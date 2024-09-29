@@ -84,6 +84,8 @@ class NodeMarkdownBlog {
             const obj = { 0: fileName, 1: fileData }
             obj.path = filePath
             obj.dir = fileDir
+
+            
             data.push(obj)
         })
 

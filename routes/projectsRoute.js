@@ -9,8 +9,8 @@ const eta = new Eta({ views: join(process.cwd(), "views") })
 export const projectsRoute = app.get("/projects", async (c, next) => {
     // Route data
     const data = {
-        title: "Alex",
-        description: "Projects",
+        title: "Projects",
+        description: "Projects Hub",
     }
 
     const res = eta.render("layouts/base.html", {
@@ -20,7 +20,7 @@ export const projectsRoute = app.get("/projects", async (c, next) => {
         data: data,
         posts: await getPosts(),
         // Passing needed settings for the template
-        siteTitle: "Projects",
+        siteTitle: "Alex",
     })
     return c.html(res)
 })
