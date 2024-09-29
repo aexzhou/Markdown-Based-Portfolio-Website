@@ -4,13 +4,14 @@
       display: flex;
     }
     .carousel-item {
-      margin-right: 2px;
-      margin-left: 2px;
+      /* margin-right: 2px; */
+      /* margin-left: 2px; */
+      margin-right: 0px;
+      margin-left: 0px;
       flex: 0 0 33.333333%;
       display: block;
     }
   }
-  
   
   .card{
       margin: 0 .5em;
@@ -26,23 +27,15 @@
       /* top: 50%; */
       /* transform: translateY(-50%); */
   }
+  .carousel-indicators button {
+    position: relative;
+    bottom: -30px;
+  }
 </style>
 
 <div id="pCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-  <div class="carousel-indicators">
-    <% it.posts.forEach((post, index) => { %>
-
-      <% if(index === 0) { %>
-        <button type="button" data-bs-target="#pCarousel" data-bs-slide-to="<%= index %>" class="active" aria-current="true" aria-label="Slide 1"></button>
-      
-      <% } else { %>
-
-        <button type="button" data-bs-target="#pCarousel" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1%>"></button>
-      <% } %>
-
-    <% }) %>
-  </div>
+  
 
   <div class="row">
     <div class="col-sm-10 order-2 g-0">
@@ -76,8 +69,8 @@
           <!-- Treat first item of array differently since it requires the "active" class -->
           <% if(index === 0) { %>
 
-            <div class="carousel-item active" data-bs-interval="10000">
-              <div class="card d-block w-100">
+            <div class="carousel-item active p-1" data-bs-interval="10000" style="height: 380px;">
+              <div class="card d-block w-100 mx-0">
                 <img src="<%= postImage %>" class="card-img-top mx-auto d-block" style="max-height: 150px; width: auto;" alt="<%= postImageAlt %>">
                 <div class="card-body mx-auto w-80">
 
@@ -100,8 +93,8 @@
 
           <% } else { %>
 
-            <div class="carousel-item" data-bs-interval="2000">
-              <div class="card d-block w-100">
+            <div class="carousel-item p-1" data-bs-interval="2000" style="height: 380px;">
+              <div class="card d-block w-100 mx-0">
                 <img src="<%= postImage %>" class="card-img-top mx-auto d-block" style="max-height: 150px; width: auto;" alt="<%= postImageAlt %>">
                 <div class="card-body mx-auto">
 
@@ -144,16 +137,36 @@
       </button>
     </div>
   </div>
+
+  <div class = "row mt-1">
+    <div class="col-12 d-flex justify-content-center">
+      <div class="carousel-indicators">
+        <% it.posts.forEach((post, index) => { %>
+    
+          <% if(index === 0) { %>
+            <button type="button" data-bs-target="#pCarousel" data-bs-slide-to="<%= index %>" class="active" aria-current="true" aria-label="Slide 1"></button>
+          
+          <% } else { %>
+    
+            <button type="button" data-bs-target="#pCarousel" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1%>"></button>
+          <% } %>
+    
+        <% }) %>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
-  
+
 const numcards = 3;
-var carouselWidth = $(".carousel-inner")[0].scrollWidth;
-var cardWidth = $(".carousel-item").width() + 20;
+// var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+var cardWidth = $(".carousel-item").outerWidth();
 var scrollPosition = 0;
 var scrollSpeed = 600;
 var spotlightCount = $('.carousel-item').length
+var carouselWidth = spotlightCount * cardWidth - 1 // account for rounding
 
 $(".carousel-control-next").on("click", function () {
   if (scrollPosition < (carouselWidth - cardWidth * numcards)) { //check if you can go any further
