@@ -1,61 +1,49 @@
 
-<div class="container mt-5" style="max-width: 800px;">
-    <div class="row">
-    <div class="col-sm-9">
-        <div class="row ">
-            <h2 class="title mb-2"><%= it.data.title %></h2>
-            <h4><%= it.data.description %></h3>
-            <% if (it.dirname === "posts") { %>
-            <div class="meta mb-3">
-                <span class="date"><%= it.data.date %></span>
-                <span>
-                    <!-- Start post tag(s) -->
-                    <% it.data.tags.forEach(tag => { %>
-                    <!-- Start each tag markup -->
-                    <%= tag %>
-                    <!-- End each tag markup -->
-                    <% }) %>
-                    <!-- End post tag(s) -->
-                </span>
+<div class="container mt-5" style="max-width: 900px;">
+    
+    <div class="col">
+        <div class="row px-2">
+            <div class="col-sm-6">
+                <h2 class="title mb-2"><%= it.data.title %></h2>
+                <h4><%= it.data.description %></h3>
+                <% if (it.dirname === "posts") { %>
+                <div class="meta mb-3">
+                    <span class="date"><%= it.data.date %></span>
+                    <span>
+                        <!-- Start post tag(s) -->
+                        <% it.data.tags.forEach(tag => { %>
+                        <!-- Start each tag markup -->
+                        <%= tag %>
+                        <!-- End each tag markup -->
+                        <% }) %>
+                        <!-- End post tag(s) -->
+                    </span>
+                </div>
+                <% } %>
             </div>
-            <% } %>
+            <div class="col-sm-6 mt-3">
+                <!-- Markdown file image -->
+                <figure class="blog-banner mx-auto">
+                    <a href="<%= it.data.imageCredit %>" target="_blank">
+                        <img class="img-fluid mx-auto d-block" src="<%= it.data.image %>" alt="<%= it.data.imageAlt %>" />
+                    </a>
+                    <figcaption class="mt-2 text-center image-caption">
+                        Image Credit:
+                        <a class="theme-link" href="<%= it.data.imageCredit %>" target="_blank"><%= it.data.imageAlt %></a>
+                    </figcaption>
+                </figure>
+            </div>
         </div>
-        <div class="row">
-            <!-- Markdown file image -->
-            <figure class="blog-banner">
-                <a href="<%= it.data.imageCredit %>" target="_blank">
-                    <img class="img-fluid" src="<%= it.data.image %>" alt="<%= it.data.imageAlt %>" />
-                </a>
-                <figcaption class="mt-2 text-center image-caption">
-                    Image Credit:
-                    <a class="theme-link" href="<%= it.data.imageCredit %>" target="_blank"><%= it.data.imageAlt %></a>
-                </figcaption>
-            </figure>
-            <div data-bs-spy="scroll" data-bs-target="#mdnav" data-bs-offset="0" tabindex="0">
-                <!-- Markdown file content -->
-                <%~ it.content %>
-            </div>
+        <div class="row px-2">
+            <!-- Markdown file content -->
+            <%~ it.content %>
+            
             
         </div>
     </div>
-    <div class="col-sm-2 ">
-        <nav id="mdnav" class="navbar navbar-light bg-light flex-column  p-3">
-            <a class="navbar-brand" href="#">Menu</a>
-            <nav class="nav nav-pills flex-column">
-              <a class="nav-link" href="#item-1">Item 1</a>
-              <nav class="nav nav-pills flex-column">
-                <a class="nav-link ms-3 my-1" href="#item-1-1">Item 1-1</a>
-                <a class="nav-link ms-3 my-1" href="#item-1-2">Item 1-2</a>
-              </nav>
-              <a class="nav-link" href="#item-2">Item 2</a>
-              <a class="nav-link" href="#item-3">Item 3</a>
-              <nav class="nav nav-pills flex-column">
-                <a class="nav-link ms-3 my-1" href="#item-3-1">Item 3-1</a>
-                <a class="nav-link ms-3 my-1" href="#item-3-2">Item 3-2</a>
-              </nav>
-            </nav>
-          </nav>
-    </div>
+   
+    
+    
 </div>
-</div>
+
 
