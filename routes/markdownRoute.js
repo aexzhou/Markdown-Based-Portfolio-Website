@@ -10,7 +10,7 @@ const eta = new Eta({ views: join(process.cwd(), "views") })
 export const markdownRoute = app.get("/:folder/:filename", async (c, next) => {
     try{
         // Merge the pages and the posts arrays into a single array named mdFiles
-        const pages = await getPages()
+        // const pages = await getPages()
         const posts = await getPosts()
         // const mdFiles = pages.concat(posts)
         // const projectsDir = join(process.cwd(), 'views', 'projects')
