@@ -6,6 +6,7 @@ const app = new Hono()
 
 // Serve Static files
 app.use("/static/*", serveStatic({ root: "./" }))
+app.use('/favicon.ico', serveStatic({ path: './static/favicon/favicon.ico' }))
 
 // Routes
 import { mainRoute } from "./routes/mainRoute.js"
