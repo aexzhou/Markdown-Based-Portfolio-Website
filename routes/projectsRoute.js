@@ -6,7 +6,7 @@ import { getPosts } from "../functions/markdownblog.js"
 const app = new Hono()
 const eta = new Eta({ views: join(process.cwd(), "views") })
 
-export const projectsRoute = app.get("/projects", async (c, next) => {
+export const projectsRoute = app.get("/projects", async (c) => {
     // Route data
     const data = {
         title: "Projects",
