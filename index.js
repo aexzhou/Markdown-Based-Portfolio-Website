@@ -20,6 +20,8 @@ app.route("/", markdownRoute)
 
 app.route("/", projectsRoute)
 
+const port = 5000;
+
 serve(app, ({ port }) => {
     console.log(`Listening on http://localhost:${port}`)
 })
