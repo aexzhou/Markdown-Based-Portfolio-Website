@@ -1,4 +1,16 @@
-# My Markdown-based Portfolio Website
+---
+title: My Markdown-based Website 
+description: How I built a portfolio website that renders markdown blogs for me.
+date: 2024-07-25
+tags: [Node.js, Markdown, HTML]
+image: /static/img/markdown.png
+spotlight : true
+category: Personal
+---
+
+**View this project's Repository** [on Github](https://github.com/aexzhou/Markdown-Based-Portfolio-Website)
+
+## Introduction:
 
 This is a personal portfolio website that automatically renders markdown files into html, making it easy to post blogs while having the formatting freedom of markdown files.
 

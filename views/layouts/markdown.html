@@ -24,21 +24,28 @@
             <div class="col-sm-6 mt-3">
                 <!-- Markdown file image -->
                 <figure class="blog-banner mx-auto">
-                    <a href="<%= it.data.imageCredit %>" target="_blank">
-                        <img class="img-fluid mx-auto d-block" src="<%= it.data.image %>" alt="<%= it.data.imageAlt %>" />
-                    </a>
-                    <figcaption class="mt-2 text-center image-caption">
+                    <!-- <a href="<%= it.data.imageCredit %>" target="_blank"> -->
+                        <img style="max-height: 180px; " class="img-fluid mx-auto d-block" src="<%= it.data.image %>" alt="<%= it.data.imageAlt %>" />
+                    <!-- </a> -->
+                    <!-- <figcaption class="mt-2 text-center image-caption">
                         Image Credit:
                         <a class="theme-link" href="<%= it.data.imageCredit %>" target="_blank"><%= it.data.imageAlt %></a>
-                    </figcaption>
+                    </figcaption> -->
                 </figure>
             </div>
         </div>
-        <div class="row px-2">
+        <div class="row px-2 mb-5">
             <!-- Markdown file content -->
             <%~ it.content %>
             
             
+        </div>
+        <div class="row px-2">
+            <div class="divider bg-dark"></div>
+            
+            <div class="my-5">
+                <footer class="mx-auto d-block">&copy; Copyright 2024 Qinnan Zhou</footer>
+            </div>
         </div>
     </div>
    
